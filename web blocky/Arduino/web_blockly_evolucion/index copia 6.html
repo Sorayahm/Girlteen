@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<title>GirlTeen</title>
+  <script src="google-blockly-42172ba/blockly_compressed.js"></script>
+  <script src="google-blockly-42172ba/blocks_compressed.js"></script>
+  <script src="google-blockly-42172ba/msg/js/es.js"></script>
+  <script src="google-blockly-42172ba/blocks/loops.js"></script>
+  <script src="google-blockly-42172ba/blocks/logic.js"></script>
+  <script src="google-blockly-42172ba/blocks/math.js"></script>
+  <script src="google-blockly-42172ba/blocks/variables.js"></script>
+  <script src="google-blockly-42172ba/blocks/procedures.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/loops.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/math.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/text.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/variables.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/procedures.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/io.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/time.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/motor.js"></script>
+  <script src="google-blockly-42172ba/blocks/arduino/Comm.js"></script>
+  <script src="google-blockly-42172ba/blocks/scratch/motion.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/logic.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/loops.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/variables.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/io.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/time.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/motor.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/comm.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/loops.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/math.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/text.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/variables.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/procedures.js"></script>
+  
+ 
+  <link rel="stylesheet" type="text/css" href="contenido_css_web.css">
+ 
+</head>
+<body>
+<div id="banner">
+	<table border="0" cellspacing="0">
+    	<tr>
+        	<td id="codigo" align="center">
+            <a href="index.html">
+				<img src="logo.png">
+            </a>
+            </td>
+            <td id="game" align="center">
+            	<a href="blockly-games/index.html">
+            	<img src="game_logo.png">
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+  <table border="0" cellspacing="0">
+    <tr>
+      <td id="blocklyArea">
+      </td>
+    </tr>
+  </table>
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+   <xml id="toolbox" style="display: none">
+  <category name="Control" colour="210">
+  	<category name="Selección" colour="210">
+    	<block type="controls_if"></block>
+    	<block type="controls_if">
+    		<mutation else="1"></mutation>
+    	</block>
+    	<block type="controls_if">
+    		<mutation elseif="1" else="1"></mutation>
+    	</block>
+        <block type="controls_switch"></block>
+        <block type="case"></block>
+        <block type="time_second"></block>
+    </category>
+    <category name="Booleanos" colour="210">
+    	<block type="logic_compare"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
+    </category>
+    </category>
+    <category name="Bucles" colour="120">
+        <block type="controls_repeat"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="do_while"></block>
+        <block type="controls_for"></block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+        <block type="infinity_loops"></block>
+    </category>
+   <category name="Matematicas" colour="230">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="math_arithmetic"></block>
+    <block type="math_trig"></block>
+    <block type="math_single"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_change"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+   </category>
+   <category name="List" colour="260">
+    <block type="lists_create_empty"></block>
+    <block type="lists_repeat"></block>
+    <block type="lists_reverse"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_length"></block>
+   </category>
+   <category name="Texto" colour="290">
+    <block type="text"></block>
+    <block type="text_print"></block>
+    <block type="text_join"></block>
+    <block type="text_create_join_container"></block>
+    <block type="text_create_join_item"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_indexOf"></block>
+    <block type="text_charAt"></block>
+    <block type="text_getSubstring"></block>
+    <block type="text_changeCase"></block>
+    <block type="text_trim"></block>
+    <block type="text_prompt_ext"></block>
+    <block type="text_prompt"></block>
+    <block type="text_count"></block>
+    <block type="text_replace"></block>
+    <block type="text_reverse"></block>
+   </category>
+   <category name="Variables" colour="330">
+   	<block type="variables_get"></block>
+    <block type="variables_set"></block>
+    <block type="variables_type"></block>
+    <block type="variables_change"></block>
+    <block type="variable_show"></block>
+    <block type="variable_hide"></block>
+   </category>
+   <category name="Funcion" colour="150">
+   	<block type="procedures_defnoreturn"></block>
+    <block type="procedures_defreturn"></block>
+    <block type="procedures_mutatorcontainer"></block>
+    <block type="procedures_mutatorarg"></block>
+    <block type="procedures_callnoreturn"></block>
+    <block type="procedures_callreturn"></block> 
+   </category>
+   <category name="Arduino" colour="0">
+    <category name="Genéricos">
+    <category name="Bucles" colour="120">
+        <block type="arduino_controls_repeat"></block>
+        <block type="arduino_controls_whileUntil"></block>
+        <block type="arduino_controls_for"></block>
+        <block type="arduino_controls_forEach"></block>
+        <block type="arduino_controls_flow_statements"></block>
+        
+    </category>
+   <category name="Matematicas" colour="230">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="arduino_math_arithmetic"></block>
+    <block type="arduino_math_trig"></block>
+    <block type="arduino_math_single"></block>
+    <block type="arduino_math_constant"></block>
+    <block type="arduino_math_number_property"></block>
+    <block type="arduino_math_change"></block>
+    <block type="arduino_math_round"></block>
+    <block type="arduino_math_on_list"></block>
+    <block type="arduino_math_modulo"></block>
+    <block type="arduino_math_constrain"></block>
+    <block type="arduino_math_random_int"></block>
+    <block type="arduino_math_random_float"></block>
+   </category>
+   <category name="Texto" colour="290">
+    <block type="arduino_text"></block>
+    <block type="arduino_text_join"></block>
+    <block type="arduino_text_append"></block>
+    <block type="arduino_text_length"></block>
+    <block type="arduino_text_isEmpty"></block>
+   </category>
+   <category name="Variables" colour="330">
+   	<block type="arduino_variables_get"></block>
+    <block type="arduino_variables_set"></block>
+    <block type="arduino_variables_type"></block>
+   </category>
+   <category name="Funcion" colour="150">
+   	<block type="procedures_defnoreturn"></block>
+    <block type="procedures_defreturn"></block>
+    <block type="arduino_functions"></block>
+    <block type="procedures_ifreturn"></block>
+    </category>
+    </category>
+    <category name="Especifico">
+    <category name="E/S" colour="160">
+    	<block type="set_digital"></block>
+        <block type="read_digital"></block>
+        <block type="arduino_builtin"></block>
+        <block type="set_analog"></block> 
+        <block type="read_analog"></block>
+        <block type="arduino_state"></block>
+        <block type="read"></block>
+        <block type="read_timeout"></block>
+    </category>
+    <category name="Tiempo" colour="65">
+    	<block type="time_millisecond"></block>
+    	<block type="time_microsecond"></block>
+    	<block type="wait_forever"></block>
+    </category>
+    <category name="Motor" colour="220">
+    	<block type="set_servo"></block>
+        <block type="read_servo"></block>
+        <block type="setup_stepper_motor"></block>
+        <block type="move_stepper"></block>
+    </category>
+    <category name="Comunicación" colour="90">
+    	<block type="arduino_serial"></block>
+        <block type="arduino_serial_print"></block>
+        <block type="arduino_prompt"></block>
+    </category>
+   </category>
+   </category>
+   <!--<category name="Scratch" colour="310">
+   <category name="Movimiento" colour="220">
+   	<block type="move"></block>
+    <block type="turn_right"></block>
+    <block type="turn_left"></block>
+    <block type="bounce"></block>
+    <block type="rotate"></block>
+    <block type="go_to"></block>
+    <block type="go_to_coordenate"></block>
+    <block type="glide"></block>
+    <block type="glide_coordenate"></block>
+    <block type="degrees"></block>
+    <block type="point_towards"></block>
+    <block type="change_x"></block>
+    <block type="change_y"></block>
+    <block type="set_x"></block>
+    <block type="set_y"></block>
+    <block type="position_x"></block>
+    <block type="position_y"></block>
+    <block type="direction"></block>
+    
+    </category>
+    <category name="Apariencia" colour="160">
+    <block type="say_sec"></block>
+    <block type="say"></block>
+    <block type="think_sec"></block>
+    <block type="think"></block>
+    <block type="change_size"></block>
+    <block type="change_size_percentage"></block>
+    </category>
+    <category name="Eventos" colour="60">
+    <block type="when_flag"></block>
+    <block type="key_pressed"></block>
+    <block type="sprite_press"></block>
+    <block type="msg_receive"></block>
+    <block type="msg_broadcast"></block>
+    </category>-->
+    
+  </xml>
+
+  <script>
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox'),
+     grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#9ecfcf',
+          snap: true},
+     trashcan: true});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+      Blockly.svgResize(demoWorkspace);
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(demoWorkspace);
+  </script>
+</body>
+</html>

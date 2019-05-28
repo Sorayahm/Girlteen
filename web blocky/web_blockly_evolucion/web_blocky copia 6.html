@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly</title>
+  <script src="google-blockly-42172ba/blockly_compressed.js"></script>
+  <script src="google-blockly-42172ba/blocks_compressed.js"></script>
+  <script src="google-blockly-42172ba/msg/js/es.js"></script>
+  <script src="google-blockly-42172ba/blocks/loops.js"></script>
+  <script src="google-blockly-42172ba/blocks/logic.js"></script>
+  <script src="google-blockly-42172ba/blocks/math.js"></script>
+  <script src="google-blockly-42172ba/blocks/variables.js"></script>
+  <script src="google-blockly-42172ba/blocks/Arduino.js"></script>
+  <script src="google-blockly-42172ba/blocks/funcion.js"></script>
+  <script src="google-blockly-42172ba/blocks/Scratch.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/logic.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/loops.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/variables.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/funcion.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/Arduino.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/Scratch.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+    table {
+      height: 100%;
+      width: 100%;
+    }
+    #blocklyArea {
+      height: 99%;
+    }
+	#banner{
+		height:80px;
+		background-color:#FFD8F6
+	}
+	
+  </style>
+</head>
+<body>
+<div id="banner">
+	<img src="logo.png">
+</div>
+  <table>
+    <tr>
+      <td id="blocklyArea">
+      </td>
+    </tr>
+  </table>
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+
+   <xml id="toolbox" style="display: none">
+  <category name="Control" colour="210">
+  	<category name="Selección" colour="210">
+    	<block type="controls_if"></block>
+    	<block type="controls_if">
+    		<mutation else="1"></mutation>
+    	</block>
+    	<block type="controls_if">
+    		<mutation elseif="1" else="1"></mutation>
+    	</block>
+        <block type="controls_switch"></block>
+        <block type="case"></block>
+        <block type="time_second"></block>
+    </category>
+    <category name="Booleanos" colour="210">
+    	<block type="logic_compare"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
+    </category>
+    </category>
+    <category name="Bucles" colour="120">
+        <block type="controls_repeat"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="controls_do_while"></block>
+        <block type="controls_for"></block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+    </category>
+   <category name="Matematicas" colour="230">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="math_arithmetic"></block>
+    <block type="math_trig"></block>
+    <block type="math_single"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_change"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+   </category>
+   <category name="List" colour="260">
+    <block type="lists_create_empty"></block>
+    <block type="lists_repeat"></block>
+    <block type="lists_reverse"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_length"></block>
+   </category>
+   <category name="Texto" colour="290">
+    <block type="text"></block>
+    <block type="text_print"></block>
+    <block type="text_join"></block>
+    <block type="text_create_join_container"></block>
+    <block type="text_create_join_item"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_indexOf"></block>
+    <block type="text_charAt"></block>
+   </category>
+   <category name="Variables" colour="330">
+   	<block type="variables_get"></block>
+    <block type="variables_set"></block>
+    <block type="variables_type"></block>
+    <block type="variables_change"></block>
+    <block type="variable_show"></block>
+    <block type="variable_hide"></block>
+   </category>
+   <category name="Funcion" colour="150">
+   	<block type="function"></block>
+    <block type="function_return"></block>
+    <block type="if_return"></block>
+   </category>
+   <category name="Arduino" colour="0">
+    <block type="function_arduino"></block>
+    <category name="E/S" colour="160">
+    	<block type="set_digital"></block>
+        <block type="read_digital"></block>
+        <block type="arduino_builtin"></block>
+        <block type="set_analog"></block> 
+        <block type="read_analog"></block>
+        <block type="arduino_state"></block>
+        <block type="read"></block>
+        <block type="read_timeout"></block>
+    </category>
+    <category name="Tiempo" colour="65">
+    	<block type="time_millisecond"></block>
+    	<block type="time_microsecond"></block>
+    	<block type="wait_forever"></block>
+    </category>
+    <category name="Motor" colour="220">
+    	<block type="set_servo"></block>
+        <block type="read_servo"></block>
+        <block type="setup_stepper_motor"></block>
+        <block type="move_stepper"></block>
+    </category>
+    <category name="Comunicación" colour="90">
+    	<block type="arduino_serial"></block>
+        <block type="arduino_serial_print"></block>
+        <block type="arduino_prompt"></block>
+    </category>
+   </category>
+   <category name="Scratch" colour="310">
+   <category name="Movimiento" colour="220">
+   	<block type="move"></block>
+    <block type="turn_right"></block>
+    <block type="turn_left"></block>
+    <block type="bounce"></block>
+    <block type="rotate"></block>
+    <category name="Posición" colour="220">
+    <block type="go_to"></block>
+    <block type="go_to_coordenate"></block>
+    <block type="glide"></block>
+    <block type="glide_coordenate"></block>
+    <block type="degrees"></block>
+    <block type="point_towards"></block>
+    <block type="change_x"></block>
+    <block type="change_y"></block>
+    <block type="set_x"></block>
+    <block type="set_y"></block>
+    <block type="position_x"></block>
+    <block type="position_y"></block>
+    <block type="direction"></block>
+    </category>
+    </category>
+    <category name="Apariencia" colour="160">
+    <block type="say_sec"></block>
+    <block type="say"></block>
+    <block type="think_sec"></block>
+    <block type="think"></block>
+    <block type="change_size"></block>
+    <block type="change_size_percentage"></block>
+    </category>
+    <category name="Eventos" colour="60">
+    <block type="when_flag"></block>
+    <block type="key_pressed"></block>
+    <block type="sprite_press"></block>
+    <block type="msg_receive"></block>
+    <block type="msg_broadcast"></block>
+    </category>
+   </category>
+   
+    
+  </xml>
+
+  <script>
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox'),
+     grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#9ecfcf',
+          snap: true},
+     trashcan: true});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+      Blockly.svgResize(demoWorkspace);
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(demoWorkspace);
+  </script>
+</body>
+</html>

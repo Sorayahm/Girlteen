@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<title>GirlTeen</title>
+  <script src="google-blockly-42172ba/blockly_compressed.js"></script>
+  <script src="google-blockly-42172ba/blocks_compressed.js"></script>
+  <script src="google-blockly-42172ba/javascript_compressed.js">
+  </script>
+  <script src="google-blockly-42172ba/msg/js/es.js"></script>
+  <script src="google-blockly-42172ba/blocks/loops.js"></script>
+  <script src="google-blockly-42172ba/blocks/logic.js"></script>
+  <script src="google-blockly-42172ba/blocks/math.js"></script>
+  <script src="google-blockly-42172ba/blocks/variables.js"></script>
+  <script src="google-blockly-42172ba/blocks/procedures.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/logic.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/loops.js"></script>
+  <script src="google-blockly-42172ba/generators/javascript/variables.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="contenido_css_web.css">
+</head>
+<body>
+<div id="banner">
+	<table border="0" cellspacing="0">
+    	<tr>
+        	<td id="codigo" align="center">
+            <a href="index.html" title="Bloques para programar en Javascript">
+				<img src="logo.png">
+            </a>
+            </td>
+            <td id="arduino" align="center">
+            	<a href="Arduino/index.html" title="Código para programar con Arduino">
+            	<img src="Arduino/girlteen_robot.png">
+                </a>
+            </td>
+            <td id="game" align="center">
+            	<a href="blockly-games/index.html" title="Juegos para aprender a utilizar los bloques">
+            	<img src="game_logo.png">
+                </a>
+            </td>
+            
+        </tr>
+    </table>
+    
+</div>
+  <table border="1" cellspacing="0" bordercolor="#CCCCCC">
+    <tr>
+      <td id="blocklyArea">
+      </td>
+      
+      <td width="30%" height="100%" style="padding:2px;">
+      	<table border="1" cellspacing="0" bordercolor="#9ecfcf">
+            <tr>
+            	<td height="3%">
+                <h3>Código Javascript:</h3>
+                <button onClick="showCodeJavascript()" title="Ver código" id="show"></button>
+                <button onClick="runCodeJavascript()" title="Ejecutar código que se ve" id="run"></button>
+                </td>
+            </tr>
+            <tr>
+            	<td height="75%">
+                	<pre id="Javascript"></pre>
+                    <textarea id="languageJS"></textarea>
+                </td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </table>
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+   <xml id="toolbox" style="display: none">
+  <category name="Control" colour="210">
+  	<category name="Selección" colour="210">
+    	<block type="controls_if"></block>
+    	<block type="controls_if">
+    		<mutation else="1"></mutation>
+    	</block>
+    	<block type="controls_if">
+    		<mutation elseif="1" else="1"></mutation>
+    	</block>
+        <block type="controls_switch"></block>
+        <block type="case"></block>
+        <block type="time_second"></block>
+    </category>
+    <category name="Booleanos" colour="210">
+    	<block type="logic_compare"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
+    </category>
+    </category>
+    <category name="Bucles" colour="120">
+        <block type="controls_repeat"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="do_while"></block>
+        <block type="controls_for"></block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+        <block type="infinity_loops"></block>
+    </category>
+   <category name="Matematicas" colour="230">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="math_arithmetic"></block>
+    <block type="math_trig"></block>
+    <block type="math_single"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_change"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+   </category>
+   <category name="List" colour="260">
+    <block type="lists_create_empty"></block>
+    <block type="lists_repeat"></block>
+    <block type="lists_reverse"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_length"></block>
+   </category>
+   <category name="Texto" colour="290">
+    <block type="text"></block>
+    <block type="text_print"></block>
+    <block type="text_join"></block>
+    <block type="text_create_join_container"></block>
+    <block type="text_create_join_item"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_indexOf"></block>
+    <block type="text_charAt"></block>
+    <block type="text_getSubstring"></block>
+    <block type="text_changeCase"></block>
+    <block type="text_trim"></block>
+    <block type="text_prompt_ext"></block>
+    <block type="text_prompt"></block>
+    <block type="text_count"></block>
+    <block type="text_replace"></block>
+    <block type="text_reverse"></block>
+   </category>
+   <category name="Variables" colour="330">
+   	<block type="variables_get"></block>
+    <block type="variables_set"></block>
+    <block type="variables_type"></block>
+    <block type="variables_change"></block>
+    <block type="variable_show"></block>
+    <block type="variable_hide"></block>
+   </category>
+   <category name="Funcion" colour="150">
+   	<block type="procedures_defnoreturn"></block>
+    <block type="procedures_defreturn"></block>
+    <block type="procedures_mutatorcontainer"></block>
+    <block type="procedures_mutatorarg"></block>
+    <block type="procedures_callnoreturn"></block>
+    <block type="procedures_callreturn"></block> 
+   </category>
+   </category>
+  </xml>
+
+  <script>
+  	
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox'),
+     grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#9ecfcf',
+          snap: true},
+     trashcan: true});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+      Blockly.svgResize(demoWorkspace);
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(demoWorkspace);
+	
+	function showCodeJavascript(){
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      document.getElementById("languageJS").value=code;
+	}
+	
+	function runCodeJavascript(){
+		window.LoopTrap=1000;
+		Blockly.JavaScript.INFINITE_LOOP_TRAP='if(--window.LoopTrap==0) throw "Infinite loop.";\n';
+		var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		try{
+			eval(code)
+		}catch(e){
+			alert(e);
+		}
+	}
+  </script>
+</body>
+</html>

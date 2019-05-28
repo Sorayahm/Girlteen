@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<title>GirlTeen</title>
+  <script src="google-blockly-42172ba/blockly_compressed.js"></script>
+  <script src="google-blockly-42172ba/blocks_compressed.js"></script>
+  <script src="google-blockly-42172ba/javascript_compressed.js">
+  </script>
+  <script src="google-blockly-42172ba/arduino_compressed.js"></script>
+  <script src="google-blockly-42172ba/msg/js/en.js"></script>
+  <script src="google-blockly-42172ba/generators/arduino/comm.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="contenido_css_web.css">
+</head>
+<body>
+<div id="banner">
+	<table border="0" cellspacing="0">
+    	<tr>
+        	<td id="codigo" align="center">
+            <a href="../index.html" title="Bloques para programar en Javascript">
+				<img src="logo.png">
+            </a>
+            </td>
+            <td id="arduino" align="center">
+            	
+            	<a href="index.html">
+            	<img src="girlteen_robot.png" title="Código para programar con Arduino">
+                </a>
+                   
+            </td>
+            <td id="game" align="center">
+            	<a href="../blockly-games/index.html" title="Juegos para aprender a utilizar los bloques">
+            	<img src="game_logo.png">
+                </a>
+            </td>
+            </td>
+        </tr>
+    </table>
+    
+</div>
+  <table border="1" cellspacing="0" bordercolor="#CCCCCC">
+    <tr>
+      <td id="blocklyArea">
+      </td>
+      
+      <td width="30%" height="100%" style="padding:2px;">
+      	<table border="1" cellspacing="0" bordercolor="#9ecfcf">
+        	<tr>
+            	<td height="3%">
+                <h3>Código Arduino:</h3>
+                <button onClick="showCodeArduino()" title="Ver código" id="show"></button>
+                <button onClick="generarArchivo()" title="Guardar el código que se ve" id="save"></button>
+                </td>
+            </tr>
+            <tr>
+            	<td height="75%">
+                <pre id="Arduino"></pre>
+                <textarea id="languageArd"></textarea>
+                </td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+    
+  </table>
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+   <xml id="toolbox" style="display: none">  
+   <category name="Logicos" colour="210">
+   <block type="controls_if"></block>
+   <block type="controls_if_elseif"></block>
+   <block type="logic_compare"></block>
+   <block type="logic_operation"></block>
+   <block type="logic_negate"></block>
+   <block type="logic_boolean"></block>
+   <block type="logic_null"></block>
+   <block type="logic_ternary"></block>
+   </category>
+    <category name="Bucles" colour="120">
+        <block type="controls_repeat_ext"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="controls_for"></block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+        
+    </category>
+   <category name="Matematicas" colour="230">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="math_arithmetic"></block>
+    <block type="math_trig"></block>
+    <block type="math_single"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_change"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+   </category>
+   <category name="Texto" colour="160">
+    <block type="text"></block>
+    <block type="text_join"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+   </category>
+   <category name="Array" colour="260">
+   <block type="lists_create_with"></block>
+   <block type="lists_create_with_container"></block>
+   <block type="lists_create_with_item"></block>
+   <block type="lists_repeat"></block>
+   <block type="lists_length"></block>
+   <block type="lists_isEmpty"></block>
+   <block type="lists_indexOf"></block>
+   <block type="lists_getIndex"></block>
+   <block type="lists_setIndex"></block>
+   <block type="lists_getSublist"></block>
+   <block type="lists_sort"></block>
+   <block type="lists_split"></block>
+   </category>
+   <category name="Variables" colour="330">
+   	<block type="variables_get"></block>
+    <block type="variables_set"></block>
+    <block type="variables_set_type"></block>
+   </category>
+   <category name="Funcion" colour="290">
+   	<block type="procedures_defnoreturn"></block>
+    <block type="procedures_defreturn"></block>
+    <block type="arduino_functions"></block>
+    <block type="procedures_ifreturn"></block>
+    
+    </category>
+    
+    <category name="E/S" colour="260">
+    	<block type="io_digitalwrite"></block>
+        <block type="io_digitalread"></block>
+        <block type="io_builtin_led"></block>
+        <block type="io_analogwrite"></block> 
+        <block type="io_analogread"></block>
+        <block type="io_highlow"></block>
+        <block type="io_pulsein"></block>
+        <block type="io_pulsetimeout"></block>
+    </category>
+    <category name="Tiempo" colour="120">
+    	<block type="time_delay"></block>
+    	<block type="time_delaymicros"></block>
+    	<block type="time_millis"></block>
+        <block type="time_micros"></block>
+    </category>
+    <category name="Motor" colour="65">
+    	<block type="servo_write"></block>
+        <block type="servo_read"></block>
+        <block type="stepper_config"></block>
+        <block type="stepper_step"></block>
+        
+    </category>
+    <category name="Comunicación" colour="160">
+    	<block type="serial_setup"></block>
+        <block type="serial_print"></block>
+        <block type="text_prompt_ext"></block>
+        <block type="serial_read"></block>
+        <block type="serial_available"></block>
+    </category>
+  	<category name="Tono" colour="260">
+    <block type="io_tone"></block>
+    <block type="io_notone"></block>
+    </category>
+  </xml>
+
+  <script>
+  	
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+    {toolbox: document.getElementById('toolbox'),
+     grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#9ecfcf',
+          snap: true},
+     trashcan: true});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+      Blockly.svgResize(demoWorkspace);
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(demoWorkspace);
+	
+	function showCodeArduino(){
+		Blockly.Arduino.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.Arduino.workspaceToCode(demoWorkspace);
+      document.getElementById("languageArd").value=code;
+	}
+	
+	function generarArchivo(){
+		var code=document.getElementById("languageArd").value;
+		var fileasblob= new Blob([code], {type:'text/plain'});
+		var nombreArchivo=prompt("Introduce el nombre del archivo") + ".ino";
+		var dlink=document.createElement("a");
+		
+		dlink.download=nombreArchivo;
+		
+		dlink.innerHTML="Enlace oculto";
+		
+		window.URL=window.URL||window.webKitURL;
+		
+		dlink.href=window.URL.createObjectURL(fileasblob);
+		
+		dlink.onclick=destroyClickedElement;
+		
+		dlink.style.display="none";
+		
+		document.body.appendChild(dlink);
+		
+		dlink.click();
+		
+	}
+	
+	function destroyClickedElement(e){
+		document.body.removeChild(e.target);
+	}
+
+  </script>
+</body>
+</html>
